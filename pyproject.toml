@@ -36,6 +36,7 @@ target-version = ['py312']
 [tool.darker]
 revision = "origin/main.."
 isort = true
+quiet = true
 
 [tool.flynt]
 line-length = 110
