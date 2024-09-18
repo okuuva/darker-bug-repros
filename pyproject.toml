@@ -35,6 +35,7 @@ target-version = ['py312']
 
 [tool.darker]
 revision = "origin/main.."
+flynt = true
 isort = true
 
 [tool.flynt]
