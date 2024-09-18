@@ -1,0 +1,47 @@
+[project]
+name = "darker-bug-repro"
+version = "0.1.0"
+description = "Example project for reproducing bugs in darker"
+authors = [
+    { name = "Oula Kuuva", email = "oula.kuuva@iki.fi" }
+]
+dependencies = [
+    "darker[flynt,isort]==2.1.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.rye.scripts]
+darken-src = "darker src"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/main"]
+
+[tool.black]
+extend-exclude = '''migrations'''
+line-length = 110
+target-version = ['py312']
+
+[tool.darker]
+revision = "origin/main.."
+isort = true
+
+[tool.flynt]
+line-length = 110
+
+[tool.isort]
+line_length = 110
+skip_gitignore = true
+known_first_party = ["test"]
+profile = "black"
